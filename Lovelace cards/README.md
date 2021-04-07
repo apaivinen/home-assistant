@@ -1,0 +1,1 @@
+<p>This folder contains backups of my more or less custom lovelace cards</p>
