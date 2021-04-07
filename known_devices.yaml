@@ -1,0 +1,13 @@
+anssi:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Anssi
+  track: true
+kilppari:
+    hide_if_away: false
+    icon:
+    mac:
+    name: Kilppis
+    track: true
+  

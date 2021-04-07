@@ -1,0 +1,144 @@
+- id: '1599225102877'
+  name: Night light
+  entities:
+    light.kattolamppu:
+      effect_list:
+      - effect_colorloop
+      - effect_pulse
+      - effect_stop
+      friendly_name: Living room
+      max_mireds: 400
+      min_mireds: 111
+      state: 'off'
+      supported_features: 55
+    light.kattolamppu_2:
+      effect_list:
+      - effect_colorloop
+      - effect_pulse
+      - effect_stop
+      friendly_name: Bedroom
+      max_mireds: 400
+      min_mireds: 111
+      state: 'off'
+      supported_features: 55
+    light.kattovalaistus:
+      brightness: 255
+      color_temp: 400
+      effect_list:
+      - effect_colorloop
+      - effect_pulse
+      - effect_stop
+      friendly_name: Hallway
+      max_mireds: 400
+      min_mireds: 111
+      state: 'on'
+      supported_features: 55
+    light.tyopoyta:
+      effect_list:
+      - colorloop
+      friendly_name: Työpöytä
+      is_deconz_group: false
+      state: 'off'
+      supported_features: 61
+- id: '1599239192935'
+  name: Testiscene
+  entities:
+    light.tyopoyta:
+      brightness: 90
+      effect_list:
+      - colorloop
+      friendly_name: Työpöytä
+      hs_color:
+      - 14.795
+      - 28.627
+      is_deconz_group: false
+      rgb_color:
+      - 255
+      - 200
+      - 182
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.41
+      - 0.342
+- id: '1599295076954'
+  name: Desk nightlight
+  entities:
+    light.tyopoyta:
+      brightness: 20
+      effect_list:
+      - colorloop
+      friendly_name: Työpöytä
+      is_deconz_group: false
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.33
+      - 0.66
+  icon: mdi:lightbulb-outline
+- id: '000001'
+  name: Desk Meeting light
+  entities:
+    light.tyopoyta:
+      effect_list:
+      - colorloop
+      friendly_name: Työpöytä
+      brightness: 255
+      kelvin: 2700
+      rgb_color:
+      - 255
+      - 255
+      - 255
+      is_deconz_group: false
+      state: 'on'
+      supported_features: 61
+  icon: mdi:lightbulb-outline
+- id: '000002'
+  name: Desk Free time light
+  entities:
+    light.tyopoyta:
+      brightness: 120
+      effect_list:
+      - colorloop
+      friendly_name: Työpöytä
+      is_deconz_group: false
+      rgb_color:
+      - 102
+      - 204
+      - 0
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.41
+      - 0.342
+  icon: mdi:lightbulb-outline
+- id: '1599587459013'
+  name: Wallmote hallway light
+  entities:
+    light.kattovalaistus:
+      brightness_pct: 100
+      color_temp: 150
+      effect_list:
+      - effect_colorloop
+      - effect_pulse
+      - effect_stop
+      friendly_name: Hallway
+      max_mireds: 400
+      min_mireds: 111
+      state: 'on'
+      supported_features: 55
+  icon: mdi:light-switch
+- id: '1599926648615'
+  name: HallwayLight
+  entities:
+    light.kattovalaistus:
+      effect_list:
+      - effect_colorloop
+      - effect_pulse
+      - effect_stop
+      friendly_name: Hallway
+      max_mireds: 400
+      min_mireds: 111
+      state: 'off'
+      supported_features: 55
+  icon: mdi:lightbulb-on-outline

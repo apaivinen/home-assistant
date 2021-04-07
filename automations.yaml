@@ -1,0 +1,613 @@
+- id: 1418c8cac0c64f0bacff0ee21592d8b20
+  alias: klo 05:00 valaistus  - reset
+  trigger:
+  - at: 05:30:00
+    platform: time
+  condition:
+  - after: 05:15:00
+    before: 05:45:00
+    condition: time
+  action:
+  - data:
+      brightness: 5
+      color_temp: 400
+      entity_id: all
+      white_value: 255
+    service: lifx.set_state
+  mode: single
+- id: 1418c8cac0c64f0bacff0ee21592d8b19
+  alias: klo 05:45 valaistus - herätys
+  trigger:
+  - at: 05:43:00
+    platform: time
+  condition:
+  - after: 05:20:00
+    before: 05:50:00
+    condition: time
+  action:
+  - data:
+      entity_id: all
+      transition: 900
+      brightness: 255
+      white_value: 255
+    service: lifx.set_state
+  - device_id: 13dafd593f4149dc9eeb309084d68288
+    domain: light
+    entity_id: light.kattolamppu_2
+    type: turn_on
+  - device_id: e0f18430e40045bdb0b49855750a693b
+    domain: light
+    entity_id: light.kattovalaistus
+    type: turn_on
+  - device_id: d4b51d937f6f42e8b08e5dafb3774ce3
+    domain: light
+    entity_id: light.kattolamppu
+    type: turn_on
+  - device_id: d50c892517514798be5d6c25bc421526
+    domain: light
+    entity_id: light.tyopoyta
+    type: turn_on
+  mode: single
+- id: Lauantai20201024
+  alias: Päivän valaistus
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: +01:00:00
+  condition: []
+  action:
+  - service: lifx.set_state
+    data:
+      entity_id: all
+      brightness: 255
+      kelvin: 3000
+      white_value: 255
+  mode: single
+- alias: klo 20:00 valaistus
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+    condition: time
+    after: '19:45:00'
+    before: '20:15:00'
+  action:
+    service: lifx.set_state
+    data:
+      entity_id: all
+      transition: 30
+      brightness: 200
+      kelvin: 3000
+      white_value: 255
+  id: 1418c8cac0c64f0bacff0ee21592d8b9
+- alias: klo 20:30 valaistus
+  trigger:
+    platform: time
+    at: '20:30:00'
+  condition:
+    condition: time
+    after: '20:15:00'
+    before: '20:45:00'
+  action:
+    service: lifx.set_state
+    data:
+      entity_id: all
+      transition: 30
+      brightness: 200
+      kelvin: 2500
+      white_value: 255
+  id: 1418c8cac0c64f0bacff0ee21592d8b8
+- alias: klo 21:00 valaistus
+  trigger:
+    platform: time
+    at: '21:00:00'
+  condition:
+    condition: time
+    after: '20:45:00'
+    before: '21:15:00'
+  action:
+    service: lifx.set_state
+    data:
+      entity_id: all
+      transition: 30
+      brightness: 150
+      kelvin: 2600
+      white_value: 255
+  id: 1418c8cac0c64f0bacff0ee21592d8b7
+- alias: klo 21:30 valaistus
+  trigger:
+    platform: time
+    at: '21:30:00'
+  condition:
+    condition: time
+    after: '21:15:00'
+    before: '21:45:00'
+  action:
+    service: lifx.set_state
+    data:
+      entity_id: all
+      transition: 30
+      brightness: 150
+      kelvin: 2000
+      white_value: 255
+  id: 1418c8cac0c64f0bacff0ee21592d8b6
+- alias: klo 22:00 valaistus
+  trigger:
+    platform: time
+    at: '22:00:00'
+  condition:
+    condition: time
+    after: '21:45:00'
+    before: '22:15:00'
+  action:
+    service: lifx.set_state
+    data:
+      entity_id: all
+      transition: 30
+      brightness: 100
+      kelvin: 1500
+      white_value: 255
+  id: 1418c8cac0c64f0bacff0ee21592d8b5
+- alias: klo 22:30 valaistus
+  trigger:
+    platform: time
+    at: '22:30:00'
+  condition:
+    condition: time
+    after: '22:00:00'
+    before: '23:00:00'
+  action:
+  - service: lifx.set_state
+    data:
+      entity_id: all
+      brightness: 50
+      transition: 30
+      kelvin: 1200
+      white_value: 255
+  id: 06fcaeeac98943e69dd74fc0062d310e
+- alias: klo 23:00 valaistus
+  trigger:
+    platform: time
+    at: '23:00:00'
+  condition:
+    condition: time
+    after: '23:00:00'
+    before: '23:30:00'
+  action:
+  - service: lifx.set_state
+    data:
+      entity_id: all
+      brightness: 5
+      transition: 30
+      kelvin: 1000
+      white_value: 255
+  id: f013270e3db24066b530397e990eed9b
+- id: '1599150938564'
+  alias: Kitchen General Light Turn On
+  description: ''
+  trigger:
+  - device_id: 8d8c4d742ad04170b3fde25ba90410f1
+    domain: binary_sensor
+    entity_id: binary_sensor.tradfri_motion_sensor_3
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    platform: device
+    type: motion
+  condition: []
+  action:
+  - brightness_pct: 90
+    device_id: 2e2bc88415be4d60a89eb261415612dc
+    domain: light
+    entity_id: light.keittion_yleisvalo
+    type: turn_on
+  mode: single
+- id: '1599152512159'
+  alias: Closet light Turn on
+  description: ''
+  trigger:
+  - device_id: 63421b08b2714336882bdfe9a92d59e5
+    domain: binary_sensor
+    entity_id: binary_sensor.tradfri_motion_sensor
+    platform: device
+    type: motion
+  condition: []
+  action:
+  - brightness_pct: 90
+    device_id: 16685fe9ec0e4629a1560d19c4569803
+    domain: light
+    entity_id: light.vaatehuone
+    type: turn_on
+  mode: single
+- id: '1599152565398'
+  alias: Turn off vaatehuone light
+  description: ''
+  trigger:
+  - device_id: 63421b08b2714336882bdfe9a92d59e5
+    domain: binary_sensor
+    entity_id: binary_sensor.tradfri_motion_sensor
+    platform: device
+    type: no_motion
+  condition: []
+  action:
+  - device_id: 16685fe9ec0e4629a1560d19c4569803
+    domain: light
+    entity_id: light.vaatehuone
+    type: turn_off
+  mode: single
+- id: '1599154406087'
+  alias: Bedlight Turn on
+  description: ''
+  trigger:
+  - device_id: 545333086af842e3978451b004cef4fa
+    domain: binary_sensor
+    entity_id: binary_sensor.tradfri_motion_sensor_2
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    platform: device
+    type: motion
+  condition: []
+  action:
+  - device_id: 09aad365aa2146a4ac00fbede34161b5
+    domain: switch
+    entity_id: switch.on_off_plug_in_unit_5
+    type: turn_on
+  mode: single
+- id: '1599154433373'
+  alias: Turn off bedlight
+  description: ''
+  trigger:
+  - device_id: 545333086af842e3978451b004cef4fa
+    domain: binary_sensor
+    entity_id: binary_sensor.tradfri_motion_sensor_2
+    platform: device
+    type: no_motion
+  condition: []
+  action:
+  - device_id: 09aad365aa2146a4ac00fbede34161b5
+    domain: switch
+    entity_id: switch.on_off_plug_in_unit_5
+    type: turn_off
+  mode: single
+- id: '1599156748863'
+  alias: Hallway Light Turn On
+  description: ''
+  trigger:
+  - device_id: c05b04476eac495793b9f257edcf9a08
+    domain: binary_sensor
+    entity_id: binary_sensor.tradfri_motion_sensor_4
+    platform: device
+    type: motion
+  condition: []
+  action:
+  - device_id: e0f18430e40045bdb0b49855750a693b
+    domain: light
+    entity_id: light.kattovalaistus
+    type: turn_on
+  mode: single
+- id: '1599156856930'
+  alias: Turn off hallway light
+  description: ''
+  trigger:
+  - device_id: 13f54682e7124244a617e438010ec88e
+    domain: binary_sensor
+    entity_id: binary_sensor.motion_sensor
+    platform: device
+    type: no_motion
+  condition: []
+  action:
+  - device_id: e0f18430e40045bdb0b49855750a693b
+    domain: light
+    entity_id: light.kattovalaistus
+    type: turn_off
+  mode: single
+- id: '1599157608146'
+  alias: Audio Amplifiers Turn on
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.fgwpe_f_wall_plug_gen5_power
+    above: '100'
+  condition:
+  - condition: device
+    type: is_off
+    device_id: ce07e430d8fd41ebaead5189f5f19422
+    entity_id: switch.on_off_plug_in_unit_8
+    domain: switch
+  action:
+  - device_id: ce07e430d8fd41ebaead5189f5f19422
+    domain: switch
+    entity_id: switch.on_off_plug_in_unit_8
+    type: turn_on
+  mode: single
+- id: '1599157676341'
+  alias: 'Audio Amplifiers Turn off '
+  description: ''
+  trigger:
+  - platform: numeric_state
+    below: '40'
+    for: '10'
+    entity_id: sensor.fgwpe_f_wall_plug_gen5_power
+  condition:
+  - condition: device
+    type: is_on
+    device_id: ce07e430d8fd41ebaead5189f5f19422
+    entity_id: switch.on_off_plug_in_unit_8
+    domain: switch
+  action:
+  - device_id: ce07e430d8fd41ebaead5189f5f19422
+    domain: switch
+    entity_id: switch.on_off_plug_in_unit_8
+    type: turn_off
+  mode: single
+- id: '1599163688961'
+  alias: 'Closet light Turn off '
+  description: ''
+  trigger:
+  - device_id: 63421b08b2714336882bdfe9a92d59e5
+    domain: binary_sensor
+    entity_id: binary_sensor.tradfri_motion_sensor
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 30
+    platform: device
+    type: no_motion
+  condition: []
+  action:
+  - device_id: 16685fe9ec0e4629a1560d19c4569803
+    domain: light
+    entity_id: light.vaatehuone
+    type: turn_off
+  mode: single
+- id: '1599163859778'
+  alias: 'Bedlight Turn off '
+  description: ''
+  trigger:
+  - device_id: 545333086af842e3978451b004cef4fa
+    domain: binary_sensor
+    entity_id: binary_sensor.tradfri_motion_sensor_2
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 30
+    platform: device
+    type: no_motion
+  condition: []
+  action:
+  - device_id: 09aad365aa2146a4ac00fbede34161b5
+    domain: switch
+    entity_id: switch.on_off_plug_in_unit_5
+    type: turn_off
+  mode: single
+- id: '1599163900016'
+  alias: Hallway Light Turn Off
+  description: ''
+  trigger:
+  - device_id: c05b04476eac495793b9f257edcf9a08
+    domain: binary_sensor
+    entity_id: binary_sensor.tradfri_motion_sensor_4
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 30
+    platform: device
+    type: no_motion
+  condition:
+  - condition: device
+    device_id: e0f18430e40045bdb0b49855750a693b
+    domain: light
+    entity_id: light.kattovalaistus
+    type: is_on
+  action:
+  - device_id: e0f18430e40045bdb0b49855750a693b
+    domain: light
+    entity_id: light.kattovalaistus
+    type: turn_off
+  mode: single
+- id: '1599164910871'
+  alias: Coffee Maker Power Toggle on/off
+  description: ''
+  trigger:
+  - at: 05:45:00
+    platform: time
+  - at: '15:00:00'
+    platform: time
+  condition: []
+  action:
+  - device_id: fcd32e28baf7414c97073db886ad47fc
+    domain: switch
+    entity_id: switch.on_off_plug_in_unit_6
+    type: toggle
+  mode: single
+- id: '1599295190980'
+  alias: Desk nightlight
+  description: ''
+  trigger:
+  - entity_id: input_select.desklight
+    platform: state
+  condition:
+  - condition: state
+    entity_id: input_select.desklight
+    state: Night light
+  action:
+  - scene: scene.desk_nightlight
+  mode: single
+- id: '1599295439796'
+  alias: Desk meeting light
+  description: ''
+  trigger:
+  - entity_id: input_select.desklight
+    platform: state
+  condition:
+  - condition: state
+    entity_id: input_select.desklight
+    state: Meeting
+  action:
+  - scene: scene.desk_meeting_light
+  mode: single
+- id: '1599295535627'
+  alias: Desk free time light
+  description: ''
+  trigger:
+  - entity_id: input_select.desklight
+    platform: state
+  condition:
+  - condition: state
+    entity_id: input_select.desklight
+    state: Free time
+  action:
+  - scene: scene.desk_free_time_light
+  mode: single
+- id: '1599306963787'
+  alias: Sunset
+  description: ''
+  trigger:
+  - event: sunset
+    offset: -00:05:00
+    platform: sun
+  condition: []
+  action:
+  - device_id: 016ccba9419844eab7212cfa0a887591
+    domain: switch
+    entity_id: switch.on_off_plug_in_unit_9
+    type: turn_on
+  mode: single
+- id: '1599307024569'
+  alias: Sunrise
+  description: ''
+  trigger:
+  - event: sunrise
+    offset: 00:03:00
+    platform: sun
+  condition: []
+  action:
+  - device_id: 016ccba9419844eab7212cfa0a887591
+    domain: switch
+    entity_id: switch.on_off_plug_in_unit_9
+    type: turn_off
+  mode: single
+- id: '1'
+  alias: Desk Turn on meeting light
+  trigger:
+  - platform: state
+    entity_id: input_boolean.meeting_light
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: scene.create
+    data:
+      scene_id: before
+      snapshot_entities:
+      - light.tyopoyta
+  - service: scene.turn_on
+    data:
+      entity_id: scene.desk_meeting_light
+- id: '2'
+  alias: Desk Turn off meeting light
+  trigger:
+  - platform: state
+    entity_id: input_boolean.meeting_light
+    from: 'on'
+    to: 'off'
+  condition: []
+  action:
+  - entity_id: scene.before
+    service: scene.turn_on
+- id: '1599553330009'
+  alias: Kitchen General Light Turn Off
+  description: ''
+  trigger:
+  - device_id: 8d8c4d742ad04170b3fde25ba90410f1
+    domain: binary_sensor
+    entity_id: binary_sensor.tradfri_motion_sensor_3
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 30
+    platform: device
+    type: no_motion
+  condition:
+  - condition: device
+    device_id: 2e2bc88415be4d60a89eb261415612dc
+    domain: light
+    entity_id: light.keittion_yleisvalo
+    type: is_on
+  action:
+  - device_id: 2e2bc88415be4d60a89eb261415612dc
+    domain: light
+    entity_id: light.keittion_yleisvalo
+    type: turn_off
+  mode: single
+- id: '1599587306520'
+  alias: Wallmote Hallway turn on light
+  description: ''
+  trigger:
+  - event_data:
+      scene_data: 0
+      scene_id: 1
+    event_type: zwave.scene_activated
+    platform: event
+  condition:
+  - condition: state
+    entity_id: automation.turn_on_hallway_light
+    state: 'off'
+  action:
+  - data:
+      scene_id: before
+      snapshot_entities:
+      - light.kattovalaistus
+    service: scene.create
+  - data:
+      entity_id: scene.wallmote_hallway_light
+    service: scene.turn_on
+  - data: {}
+    entity_id: automation.turn_on_hallway_light
+    service: automation.turn_off
+  - data: {}
+    entity_id: automation.turn_off_hallway_light_2
+    service: automation.turn_off
+  mode: single
+- id: '15995873065201'
+  alias: Wallmote Hallway turn Off light
+  description: ''
+  trigger:
+  - event_data:
+      scene_data: 0
+      scene_id: 3
+    event_type: zwave.scene_activated
+    platform: event
+  condition:
+  - condition: state
+    entity_id: automation.turn_on_hallway_light
+    state: 'off'
+  action:
+  - data:
+      entity_id: scene.before
+    entity_id: scene.before
+    service: scene.turn_on
+  - data: {}
+    entity_id: automation.turn_on_hallway_light
+    service: automation.turn_on
+  - data: {}
+    entity_id: automation.turn_off_hallway_light_2
+    service: automation.turn_on
+  mode: single
+- id: '1600022463860'
+  alias: Wake on lan
+  description: ''
+  trigger:
+  - entity_id: input_boolean.wake_on_lan
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      mac: 2c:fd:a1:5d:43:1f
+    service: wake_on_lan.send_magic_packet
+  mode: single

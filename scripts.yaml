@@ -1,0 +1,9 @@
+awaken:
+  alias: Awaken
+  mode: single
+  sequence:
+  - data:
+      media_content_id: http://192.168.20.5:8123/local/audio/awaken.mp3
+      media_content_type: audio/mp3
+    entity_id: media_player.vaihtoehtoinen_todellisuus
+    service: media_player.play_media

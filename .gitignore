@@ -1,0 +1,25 @@
+#whitelist files
+!*.yaml
+!.gitignore
+!*.md
+
+
+#ignore files
+
+#log files
+*.txt
+*.log
+
+#secrets
+*secrets*
+*token*
+
+#folders
+node-red/
+.storage
+
+#backups
+*.db*
+
+#random files
+pyozw.sqlite

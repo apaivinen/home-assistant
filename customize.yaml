@@ -1,0 +1,4 @@
+sensor.blackhole_monitor:
+  cpuload: 1.6
+  cputemp: 54
+  memorypercent: 1.72814
