@@ -26,22 +26,6 @@ person:
       - device_tracker.anssi
 
 
-device_tracker:
-  - platform: ping
-    track_new_devices: false
-    consider_home: 300
-    interval_seconds: 1
-    hosts:
-#        anssi: 192.168.1.204
-        kilppari: 192.168.205
-
-# Example configuration.yaml entry
-switch:
-  - platform: wake_on_lan
-    mac: 2c:fd:a1:5d:43:1f
-    name: "Anssi pc"
-    host: 192.168.1.131
-      
 # Example configuration.yaml entry
 sensor:
   - platform: systemmonitor
