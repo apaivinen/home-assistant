@@ -1,1 +1,1 @@
-![Screenshot](Pics/Home assistant hardware info.png)
+![Screenshot](/Lovelace cardsPics/Home assistant hardware info.png)
