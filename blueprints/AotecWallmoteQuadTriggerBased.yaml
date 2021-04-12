@@ -1,0 +1,72 @@
+
+#Source: https://community.home-assistant.io/t/zwavejs-aeon-labs-aeotec-zw130-wallmote-quad-all-scenes-supported/290685
+# If you haven't upgraded to 2021.4.0 or newer yet, you'll need to use this trigger code instead
+#trigger:
+#  - platform: event
+#    event_type: zwave_js_event
+#    event_data:
+#      type: value_notification
+
+trigger:
+  - platform: event
+    event_type: zwave_js_value_notification
+
+variables:
+  logger: blueprint.zwavejs_scene_activation
+  zwavejs_device: !input zwavejs_device
+
+action:
+  - choose:
+    # IF triggered device_id is zwavejs_device id
+      - conditions:
+          - condition: template
+            value_template: "{{ trigger.event.data.device_id == zwavejs_device }}"
+          - condition: template
+            value_template: "{{ trigger.event.data.command_class_name == 'Central Scene' }}"
+        sequence:
+          - choose:
+            # IF tap top left
+              - conditions:
+                  - condition: template
+                    value_template: "{{ trigger.event.data.label == 'Scene 001' and trigger.event.data.value == 'KeyPressed' }}"
+                sequence: !input tap_top_left_actions
+            # IF tap top right
+              - conditions:
+                  - condition: template
+                    value_template: "{{ trigger.event.data.label == 'Scene 002' and trigger.event.data.value == 'KeyPressed' }}"
+                sequence: !input tap_top_right_actions
+            # IF tap bottom left
+              - conditions:
+                  - condition: template
+                    value_template: "{{ trigger.event.data.label == 'Scene 003' and trigger.event.data.value == 'KeyPressed' }}"
+                sequence: !input tap_bottom_left_actions
+            # IF tap bottom right
+              - conditions:
+                  - condition: template
+                    value_template: "{{ trigger.event.data.label == 'Scene 004' and trigger.event.data.value == 'KeyPressed' }}"
+                sequence: !input tap_bottom_right_actions
+            # IF release top left
+              - conditions:
+                  - condition: template
+                    value_template: "{{ trigger.event.data.label == 'Scene 001' and trigger.event.data.value == 'KeyReleased' }}"
+                sequence: !input release_top_left_actions
+            # IF release top right
+              - conditions:
+                  - condition: template
+                    value_template: "{{ trigger.event.data.label == 'Scene 002' and trigger.event.data.value == 'KeyReleased' }}"
+                sequence: !input release_top_right_actions
+            # IF release bottom left
+              - conditions:
+                  - condition: template
+                    value_template: "{{ trigger.event.data.label == 'Scene 003' and trigger.event.data.value == 'KeyReleased' }}"
+                sequence: !input release_bottom_left_actions
+            # IF release bottom right
+              - conditions:
+                  - condition: template
+                    value_template: "{{ trigger.event.data.label == 'Scene 004' and trigger.event.data.value == 'KeyReleased' }}"
+                sequence: !input release_bottom_right_actions
+            # IF hold top left
+              - conditions:
+                  - condition: template
+                    value_template: "{{ trigger.event.data.label == 'Scene 001' and trigger.event.data.value == 'KeyHeldDown' }}"
+               
