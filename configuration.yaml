@@ -25,6 +25,8 @@ person:
     device_trackers:
       - device_tracker.anssi
 
+recorder:
+  db_url: !secret mariadb_connectionString
 
 # Example configuration.yaml entry
 sensor:
@@ -192,5 +194,5 @@ input_select:
 mqtt:
   broker: 127.0.0.1
   port: 1883
-  username: mqttservice
-  password: service
+  username: !secret MQTT_username
+  password: !secret MQTT_password
