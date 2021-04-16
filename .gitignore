@@ -13,6 +13,7 @@
 #secrets
 *secrets*
 *token*
+!secrets-DUMMY-EXAMPLE.yaml
 
 #folders
 node-red/
